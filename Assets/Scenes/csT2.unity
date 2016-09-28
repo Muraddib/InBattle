@@ -1,0 +1,229 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!29 &1
+SceneSettings:
+  m_ObjectHideFlags: 0
+  m_PVSData: 
+  m_PVSObjectsArray: []
+  m_PVSPortalsArray: []
+  m_OcclusionBakeSettings:
+    smallestOccluder: 5
+    smallestHole: 0.25
+    backfaceThreshold: 100
+--- !u!104 &2
+RenderSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 6
+  m_Fog: 0
+  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_FogMode: 3
+  m_FogDensity: 0.01
+  m_LinearFogStart: 0
+  m_LinearFogEnd: 300
+  m_AmbientSkyColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+  m_AmbientEquatorColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+  m_AmbientGroundColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+  m_AmbientIntensity: 1
+  m_AmbientMode: 3
+  m_SkyboxMaterial: {fileID: 0}
+  m_HaloStrength: 0.5
+  m_FlareStrength: 1
+  m_FlareFadeSpeed: 3
+  m_HaloTexture: {fileID: 0}
+  m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
+  m_DefaultReflectionMode: 0
+  m_DefaultReflectionResolution: 128
+  m_ReflectionBounces: 1
+  m_ReflectionIntensity: 1
+  m_CustomReflection: {fileID: 0}
+  m_Sun: {fileID: 0}
+--- !u!157 &4
+LightmapSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 6
+  m_GIWorkflowMode: 1
+  m_LightmapsMode: 1
+  m_GISettings:
+    serializedVersion: 2
+    m_BounceScale: 1
+    m_IndirectOutputScale: 1
+    m_AlbedoBoost: 1
+    m_TemporalCoherenceThreshold: 1
+    m_EnvironmentLightingMode: 0
+    m_EnableBakedLightmaps: 1
+    m_EnableRealtimeLightmaps: 0
+  m_LightmapEditorSettings:
+    serializedVersion: 3
+    m_Resolution: 1
+    m_BakeResolution: 50
+    m_TextureWidth: 1024
+    m_TextureHeight: 1024
+    m_AOMaxDistance: 1
+    m_Padding: 2
+    m_CompAOExponent: 0
+    m_LightmapParameters: {fileID: 0}
+    m_TextureCompression: 0
+    m_FinalGather: 0
+    m_FinalGatherRayCount: 1024
+    m_ReflectionCompression: 2
+  m_LightingDataAsset: {fileID: 0}
+  m_RuntimeCPUUsage: 25
+--- !u!196 &5
+NavMeshSettings:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_BuildSettings:
+    serializedVersion: 2
+    agentRadius: 0.5
+    agentHeight: 2
+    agentSlope: 45
+    agentClimb: 0.4
+    ledgeDropHeight: 0
+    maxJumpAcrossDistance: 0
+    accuratePlacement: 0
+    minRegionArea: 2
+    cellSize: 0.16666666
+    manualCellSize: 0
+  m_NavMeshData: {fileID: 0}
+--- !u!1 &1558870618
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1558870623}
+  - 20: {fileID: 1558870622}
+  - 92: {fileID: 1558870621}
+  - 124: {fileID: 1558870620}
+  - 81: {fileID: 1558870619}
+  - 114: {fileID: 1558870624}
+  - 114: {fileID: 1558870625}
+  - 114: {fileID: 1558870626}
+  - 114: {fileID: 1558870627}
+  m_Layer: 0
+  m_Name: Main Camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!81 &1558870619
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1558870618}
+  m_Enabled: 1
+--- !u!124 &1558870620
+Behaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1558870618}
+  m_Enabled: 1
+--- !u!92 &1558870621
+Behaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1558870618}
+  m_Enabled: 1
+--- !u!20 &1558870622
+Camera:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1558870618}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 100
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+  m_StereoMirrorMode: 0
+--- !u!4 &1558870623
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1558870618}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &1558870624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1558870618}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2b72f05c0a2a4993ac0f076a7731f1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BattleID: 0
+  TutorialAuth: 1
+  GuestAuth: 0
+  UUIDAuth: 1
+  UUID: 0da908d1-8342-48f2-bd31-53e571759dab
+--- !u!114 &1558870625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1558870618}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a56b06ae5143b843b176d7ed5357528, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1558870626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1558870618}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 383d11806d03d2941b8a12c6e4f4181b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1558870627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1558870618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 262cda8204d7fd149b7e1670995bd98d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  battle_json: "{\"battle\":{\"id\":2862,\"seed\":71087976866153980547975246183105581341,\"number\":7,\"min_lvl\":1,\"max_lvl\":3,\"width\":7,\"height\":7,\"round\":1,\"status\":\"battle\",\"start_time\":300,\"round_time\":120,\"updated_at\":1474988847,\"variations\":[\"spiral\",\"free_for_all\",\"mincing_machine\"],\"essences\":[{\"id\":1,\"seed\":305977098004444244744490282224226914608,\"gex\":{\"x\":4,\"y\":4},\"kind\":\"battler\",\"size\":null,\"exp\":0,\"status\":\"active\",\"result\":\"pending\",\"modifiers\":[\"custom_exp\"],\"log_data\":{},\"team_index\":null,\"info\":{\"id\":845999,\"name\":\"!\u0412\u0441\u043F\u044B\u043B\u044C\u0447\u0438\u0432\u044B\u0439!\",\"race\":\"human\",\"gender\":\"male\",\"level\":3,\"head_def\":0,\"body_def\":20,\"right_hand_def\":5,\"left_hand_def\":5,\"legs_def\":0,\"head_status\":\"good\",\"body_status\":\"good\",\"right_hand_status\":\"good\",\"left_hand_status\":\"good\",\"legs_status\":\"good\",\"rating\":200,\"authority\":262,\"consequence\":2120,\"wins\":38,\"fails\":20,\"draws\":10,\"kills\":55,\"death\":31,\"interventions\":0,\"user_id\":583338,\"hp\":120,\"max_hp\":120,\"about\":null,\"created_at\":1474795648,\"user\":{\"id\":583338,\"created_at\":1393871157},\"items\":[{\"id\":1628551,\"template\":\"dagger_of_battle\",\"status\":\"in_use\",\"position\":\"right_hand\",\"enchases\":0},{\"id\":1628550,\"template\":\"dagger_of_battle\",\"status\":\"in_use\",\"position\":\"left_hand\",\"enchases\":0}]}},{\"id\":2,\"seed\":129557851193714990355425858145625628893,\"gex\":{\"x\":3,\"y\":3},\"kind\":\"battler\",\"size\":null,\"exp\":0,\"status\":\"active\",\"result\":\"pending\",\"modifiers\":[\"custom_exp\"],\"log_data\":{},\"team_index\":null,\"info\":{\"id\":845990,\"name\":\"\u042F\u0440\u044B\u0439
+    \u041A\u0438\u0440\u0438\u043B\u043B\",\"race\":\"elf\",\"gender\":\"male\",\"level\":1,\"head_def\":0,\"body_def\":0,\"right_hand_def\":0,\"left_hand_def\":0,\"legs_def\":0,\"head_status\":\"good\",\"body_status\":\"good\",\"right_hand_status\":\"good\",\"left_hand_status\":\"good\",\"legs_status\":\"good\",\"rating\":66,\"authority\":0,\"consequence\":0,\"wins\":0,\"fails\":0,\"draws\":1,\"kills\":0,\"death\":0,\"interventions\":0,\"user_id\":880106,\"hp\":60,\"max_hp\":60,\"about\":null,\"created_at\":1474733436,\"user\":{\"id\":880106,\"created_at\":1474732616},\"items\":[{\"id\":1628610,\"template\":\"sword_of_warrior\",\"status\":\"in_use\",\"position\":\"right_hand\",\"enchases\":0}]}},{\"id\":3,\"seed\":304642799870289106707136420169163297402,\"gex\":{\"x\":4,\"y\":3},\"kind\":\"battler\",\"size\":null,\"exp\":0,\"status\":\"active\",\"result\":\"pending\",\"modifiers\":[\"custom_exp\"],\"log_data\":{},\"team_index\":null,\"info\":{\"id\":845974,\"name\":\"Luke
+    Skywalker\",\"race\":\"elf\",\"gender\":\"male\",\"level\":1,\"head_def\":0,\"body_def\":0,\"right_hand_def\":0,\"left_hand_def\":0,\"legs_def\":0,\"head_status\":\"good\",\"body_status\":\"good\",\"right_hand_status\":\"good\",\"left_hand_status\":\"good\",\"legs_status\":\"good\",\"rating\":59,\"authority\":0,\"consequence\":0,\"wins\":0,\"fails\":1,\"draws\":0,\"kills\":0,\"death\":0,\"interventions\":0,\"user_id\":880037,\"hp\":50,\"max_hp\":50,\"about\":null,\"created_at\":1474642255,\"user\":{\"id\":880037,\"created_at\":1474629401},\"items\":[]}},{\"id\":4,\"seed\":251410324682255599760261076324822933509,\"gex\":{\"x\":7,\"y\":1},\"kind\":\"hollow\",\"size\":null},{\"id\":5,\"seed\":139948485158695995918721435625993216781,\"gex\":{\"x\":7,\"y\":7},\"kind\":\"hollow\",\"size\":null},{\"id\":6,\"seed\":50352450591114004782398186747132296022,\"gex\":{\"x\":6,\"y\":6},\"kind\":\"obstacle\",\"size\":\"big\",\"gexes\":[{\"x\":6,\"y\":6},{\"x\":5,\"y\":5},{\"x\":6,\"y\":5},{\"x\":7,\"y\":6},{\"x\":6,\"y\":7},{\"x\":5,\"y\":7},{\"x\":5,\"y\":6}]},{\"id\":7,\"seed\":229032087070167737530515727915614605967,\"gex\":{\"x\":1,\"y\":3},\"kind\":\"obstacle\",\"size\":null},{\"id\":8,\"seed\":207026091145139562347222934924801854136,\"gex\":{\"x\":7,\"y\":2},\"kind\":\"obstacle\",\"size\":null},{\"id\":9,\"seed\":156660267031774447241722287625525293382,\"gex\":{\"x\":1,\"y\":1},\"kind\":\"obstacle\",\"size\":null},{\"id\":10,\"seed\":334472829304470064119082531302993320870,\"gex\":{\"x\":3,\"y\":1},\"kind\":\"obstacle\",\"size\":null},{\"id\":11,\"seed\":47295610494891687113577161540267896366,\"gex\":{\"x\":5,\"y\":2},\"kind\":\"obstacle\",\"size\":null},{\"id\":12,\"seed\":270919134303233514387951192100079636017,\"gex\":{\"x\":3,\"y\":4},\"kind\":\"obstruction\",\"size\":null,\"solidity\":3,\"injury\":0},{\"id\":13,\"seed\":301574963326301064575850204461725233716,\"gex\":{\"x\":6,\"y\":2},\"kind\":\"obstruction\",\"size\":null,\"solidity\":3,\"injury\":0},{\"id\":14,\"seed\":319940772046537352072952263586448318072,\"gex\":{\"x\":1,\"y\":5},\"kind\":\"obstruction\",\"size\":null,\"solidity\":3,\"injury\":0},{\"id\":15,\"seed\":240947562261388123830498025821783046787,\"gex\":{\"x\":1,\"y\":7},\"kind\":\"obstruction\",\"size\":null,\"solidity\":3,\"injury\":0}],\"teams\":[]}}"
