@@ -4,29 +4,23 @@ using System.Collections;
 using System.Collections.Generic;
 using LitJson;
 using SimpleJSON;
+using System;
 
-
-public class Battle : MonoBehaviour
+[Serializable]
+public class Battle
 {
-
-    // Use this for initialization
-
-    public string battle_json;
-
-
-    private void Start()
-    {
-        CreateHexMap();
-    }
-
-    private void CreateHexMap()
-    {
-        JsonData data = JsonMapper.ToObject(battle_json);
-        Debug.Log(data.Count);
-
-        foreach (var key in data["battle"].Keys)
-        {
-            Debug.Log(key);
-        }
-    }
+    public int id;
+    public int seed;
+    public string status;
+    public int number;
+    public byte min_lvl;
+    public byte max_lvl;
+    public int width;
+    public int height;
+    public int round;
+    public int start_time;
+    public int round_time;
+    public int updated_at;
+    public Array variations;
+    public Array essences;
 }

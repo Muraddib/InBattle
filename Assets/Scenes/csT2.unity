@@ -94,7 +94,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 425024, guid: 1a127f28de5f86c43ba90ad71031b39e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -40.7
       objectReference: {fileID: 0}
     - target: {fileID: 425024, guid: 1a127f28de5f86c43ba90ad71031b39e, type: 2}
       propertyPath: m_LocalPosition.y
@@ -102,7 +102,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 425024, guid: 1a127f28de5f86c43ba90ad71031b39e, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 29.2
       objectReference: {fileID: 0}
     - target: {fileID: 425024, guid: 1a127f28de5f86c43ba90ad71031b39e, type: 2}
       propertyPath: m_LocalRotation.x
@@ -269,3 +269,17 @@ MonoBehaviour:
   battle_json: "{\"battle\":{\"id\":2862,\"seed\":71087976866153980547975246183105581341,\"number\":7,\"min_lvl\":1,\"max_lvl\":3,\"width\":7,\"height\":7,\"round\":1,\"status\":\"battle\",\"start_time\":300,\"round_time\":120,\"updated_at\":1474988847,\"variations\":[\"spiral\",\"free_for_all\",\"mincing_machine\"],\"essences\":[{\"id\":1,\"seed\":305977098004444244744490282224226914608,\"gex\":{\"x\":4,\"y\":4},\"kind\":\"battler\",\"size\":null,\"exp\":0,\"status\":\"active\",\"result\":\"pending\",\"modifiers\":[\"custom_exp\"],\"log_data\":{},\"team_index\":null,\"info\":{\"id\":845999,\"name\":\"!\u0412\u0441\u043F\u044B\u043B\u044C\u0447\u0438\u0432\u044B\u0439!\",\"race\":\"human\",\"gender\":\"male\",\"level\":3,\"head_def\":0,\"body_def\":20,\"right_hand_def\":5,\"left_hand_def\":5,\"legs_def\":0,\"head_status\":\"good\",\"body_status\":\"good\",\"right_hand_status\":\"good\",\"left_hand_status\":\"good\",\"legs_status\":\"good\",\"rating\":200,\"authority\":262,\"consequence\":2120,\"wins\":38,\"fails\":20,\"draws\":10,\"kills\":55,\"death\":31,\"interventions\":0,\"user_id\":583338,\"hp\":120,\"max_hp\":120,\"about\":null,\"created_at\":1474795648,\"user\":{\"id\":583338,\"created_at\":1393871157},\"items\":[{\"id\":1628551,\"template\":\"dagger_of_battle\",\"status\":\"in_use\",\"position\":\"right_hand\",\"enchases\":0},{\"id\":1628550,\"template\":\"dagger_of_battle\",\"status\":\"in_use\",\"position\":\"left_hand\",\"enchases\":0}]}},{\"id\":2,\"seed\":129557851193714990355425858145625628893,\"gex\":{\"x\":3,\"y\":3},\"kind\":\"battler\",\"size\":null,\"exp\":0,\"status\":\"active\",\"result\":\"pending\",\"modifiers\":[\"custom_exp\"],\"log_data\":{},\"team_index\":null,\"info\":{\"id\":845990,\"name\":\"\u042F\u0440\u044B\u0439
     \u041A\u0438\u0440\u0438\u043B\u043B\",\"race\":\"elf\",\"gender\":\"male\",\"level\":1,\"head_def\":0,\"body_def\":0,\"right_hand_def\":0,\"left_hand_def\":0,\"legs_def\":0,\"head_status\":\"good\",\"body_status\":\"good\",\"right_hand_status\":\"good\",\"left_hand_status\":\"good\",\"legs_status\":\"good\",\"rating\":66,\"authority\":0,\"consequence\":0,\"wins\":0,\"fails\":0,\"draws\":1,\"kills\":0,\"death\":0,\"interventions\":0,\"user_id\":880106,\"hp\":60,\"max_hp\":60,\"about\":null,\"created_at\":1474733436,\"user\":{\"id\":880106,\"created_at\":1474732616},\"items\":[{\"id\":1628610,\"template\":\"sword_of_warrior\",\"status\":\"in_use\",\"position\":\"right_hand\",\"enchases\":0}]}},{\"id\":3,\"seed\":304642799870289106707136420169163297402,\"gex\":{\"x\":4,\"y\":3},\"kind\":\"battler\",\"size\":null,\"exp\":0,\"status\":\"active\",\"result\":\"pending\",\"modifiers\":[\"custom_exp\"],\"log_data\":{},\"team_index\":null,\"info\":{\"id\":845974,\"name\":\"Luke
     Skywalker\",\"race\":\"elf\",\"gender\":\"male\",\"level\":1,\"head_def\":0,\"body_def\":0,\"right_hand_def\":0,\"left_hand_def\":0,\"legs_def\":0,\"head_status\":\"good\",\"body_status\":\"good\",\"right_hand_status\":\"good\",\"left_hand_status\":\"good\",\"legs_status\":\"good\",\"rating\":59,\"authority\":0,\"consequence\":0,\"wins\":0,\"fails\":1,\"draws\":0,\"kills\":0,\"death\":0,\"interventions\":0,\"user_id\":880037,\"hp\":50,\"max_hp\":50,\"about\":null,\"created_at\":1474642255,\"user\":{\"id\":880037,\"created_at\":1474629401},\"items\":[]}},{\"id\":4,\"seed\":251410324682255599760261076324822933509,\"gex\":{\"x\":7,\"y\":1},\"kind\":\"hollow\",\"size\":null},{\"id\":5,\"seed\":139948485158695995918721435625993216781,\"gex\":{\"x\":7,\"y\":7},\"kind\":\"hollow\",\"size\":null},{\"id\":6,\"seed\":50352450591114004782398186747132296022,\"gex\":{\"x\":6,\"y\":6},\"kind\":\"obstacle\",\"size\":\"big\",\"gexes\":[{\"x\":6,\"y\":6},{\"x\":5,\"y\":5},{\"x\":6,\"y\":5},{\"x\":7,\"y\":6},{\"x\":6,\"y\":7},{\"x\":5,\"y\":7},{\"x\":5,\"y\":6}]},{\"id\":7,\"seed\":229032087070167737530515727915614605967,\"gex\":{\"x\":1,\"y\":3},\"kind\":\"obstacle\",\"size\":null},{\"id\":8,\"seed\":207026091145139562347222934924801854136,\"gex\":{\"x\":7,\"y\":2},\"kind\":\"obstacle\",\"size\":null},{\"id\":9,\"seed\":156660267031774447241722287625525293382,\"gex\":{\"x\":1,\"y\":1},\"kind\":\"obstacle\",\"size\":null},{\"id\":10,\"seed\":334472829304470064119082531302993320870,\"gex\":{\"x\":3,\"y\":1},\"kind\":\"obstacle\",\"size\":null},{\"id\":11,\"seed\":47295610494891687113577161540267896366,\"gex\":{\"x\":5,\"y\":2},\"kind\":\"obstacle\",\"size\":null},{\"id\":12,\"seed\":270919134303233514387951192100079636017,\"gex\":{\"x\":3,\"y\":4},\"kind\":\"obstruction\",\"size\":null,\"solidity\":3,\"injury\":0},{\"id\":13,\"seed\":301574963326301064575850204461725233716,\"gex\":{\"x\":6,\"y\":2},\"kind\":\"obstruction\",\"size\":null,\"solidity\":3,\"injury\":0},{\"id\":14,\"seed\":319940772046537352072952263586448318072,\"gex\":{\"x\":1,\"y\":5},\"kind\":\"obstruction\",\"size\":null,\"solidity\":3,\"injury\":0},{\"id\":15,\"seed\":240947562261388123830498025821783046787,\"gex\":{\"x\":1,\"y\":7},\"kind\":\"obstruction\",\"size\":null,\"solidity\":3,\"injury\":0}],\"teams\":[]}}"
+  battle:
+    id: 0
+    seed: 0
+    status: 
+    number: 0
+    min_lvl: 0
+    max_lvl: 0
+    width: 0
+    height: 0
+    round: 0
+    start_time: 0
+    round_time: 0
+    updated_at: 0
+  HexPrefab: {fileID: 140830, guid: 1a127f28de5f86c43ba90ad71031b39e, type: 2}
