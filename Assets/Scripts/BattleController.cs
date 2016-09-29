@@ -18,7 +18,9 @@ public class BattleController : MonoBehaviour
     public Material HexHover;
     public Material HexNormal;
     public List<Hex> Hexes;
-     
+    public Hex SelectedHex;
+
+
     public class HexClickedEventArgs : EventArgs
     {
     }
@@ -95,6 +97,11 @@ public class BattleController : MonoBehaviour
         }
     }
 
+    private void SelectHex(Hex hex)
+    {
+        SelectedHex = hex;
+    }
+
     private void Update()
     {
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -104,6 +111,7 @@ public class BattleController : MonoBehaviour
             Debug.Log(hit.transform.gameObject.name);
             if (Input.GetMouseButtonDown(0))
             {
+                SelectHex(hit.transform.gameObject.GetComponent<Hex>());
                 var eventArgs = new HexClickedEventArgs();
                 OnClicked(this, eventArgs);
             }
