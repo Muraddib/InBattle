@@ -17,8 +17,17 @@ public class BattleController : MonoBehaviour
 
     public Material HexHover;
     public Material HexNormal;
+    public Material HexSelected;
     public List<Hex> Hexes;
     public Hex SelectedHex;
+
+    public GameObject OrcPrefab;
+    public GameObject ElfPrefab;
+    public GameObject HumanPrefab;
+    public GameObject DwarfPrefab;
+    public GameObject UndeadPrefab;
+
+    public List<GameObject> BattleCharacters; 
 
 
     public class HexClickedEventArgs : EventArgs
@@ -66,6 +75,7 @@ public class BattleController : MonoBehaviour
         int countX = currentBattle.battle.width;
         int countY = currentBattle.battle.height;
         Hexes = new List<Hex>();
+        
         for (int i = 0; i < countX; i++)
         {
             for (int j = 0; j < countY; j++)
@@ -82,6 +92,8 @@ public class BattleController : MonoBehaviour
             }
         }
 
+        BattleCharacters = new List<GameObject>();
+
         foreach (var essence in currentBattle.battle.essences)
         {
             if (essence.kind == "hollow")
@@ -94,12 +106,47 @@ public class BattleController : MonoBehaviour
                     gex.GetComponent<Collider>().enabled = false;
                 }
             }
+
+            if (essence.kind == "battler")
+            {
+                var gex = Hexes.Find(a => a.X == essence.gex.x && a.Y == essence.gex.y).gameObject;
+                if (gex)
+                {
+                    GameObject battler = null;
+                    switch (essence.info.race)
+                    {
+                        case "elf":
+                            battler = Instantiate(ElfPrefab, gex.gameObject.transform.position + Vector3.up,
+                                Quaternion.Euler(90f, 0f, 0f)) as GameObject;
+                            break;
+                        case "human":
+                            battler = Instantiate(HumanPrefab, gex.gameObject.transform.position + Vector3.up,
+                                Quaternion.Euler(90f, 0f, 0f)) as GameObject;
+                            break;
+                        case "dwarf":
+                            battler = Instantiate(DwarfPrefab, gex.gameObject.transform.position + Vector3.up,
+                                Quaternion.Euler(90f, 0f, 0f)) as GameObject;
+                            break;
+                        case "orc":
+                            battler = Instantiate(OrcPrefab, gex.gameObject.transform.position + Vector3.up,
+                                Quaternion.Euler(90f, 0f, 0f)) as GameObject;
+                            break;
+                        case "undead":
+                            battler = Instantiate(UndeadPrefab, gex.gameObject.transform.position + Vector3.up,
+                                Quaternion.Euler(90f, 0f, 0f)) as GameObject;
+                            break;
+                    }
+
+                }
+            }
         }
     }
 
     private void SelectHex(Hex hex)
     {
+        Hexes.ForEach(a=>a.GetComponent<MeshRenderer>().material = HexNormal);
         SelectedHex = hex;
+        SelectedHex.gameObject.GetComponent<MeshRenderer>().material = HexSelected;
     }
 
     private void Update()
