@@ -5,13 +5,11 @@ using System.Collections;
 using System.Collections.Generic;
 using LitJson;
 using SimpleJSON;
-using System;
 using System.Security.AccessControl;
 using UnityEngine.UI;
 
 public class BattleController : MonoBehaviour
 {
-    public string battle_json;
     [SerializeField] public BattleData currentBattle;
     public GameObject HexPrefab;
     public Vector2 HexSize;
@@ -37,21 +35,14 @@ public class BattleController : MonoBehaviour
     {
     }
 
-    void Start()
+    public void Initialize(BattleData data)
     {
-        if (debugJSON) Initialize(battle_json);
-    }
-
-    public void Initialize(string b_json)
-    {
-        currentBattle = JsonMapper.ToObject<BattleData>(b_json);
+        currentBattle = data;
         CreateHexMap();
     }
 
     private void CreateHexMap()
     {
-        var data = JsonMapper.ToObject(battle_json);
-
         //battle = new Battle
         //    {
         //        id = (int) data["battle"]["id"],
@@ -156,66 +147,10 @@ public class BattleController : MonoBehaviour
         SelectedHex = hex;
         SelectedHex.gameObject.GetComponent<MeshRenderer>().material = HexSelected;
     }
-
-    public void OnABWindowCloseClick()
-    {
-        AttackBlockWindow.SetActive(false);
-        inTargetSelection = false;
-    }
-
-    public void OnABWindowConfirmClick()
-    {
-        //AttackBlockWindow.SetActive(false);
-        //inTargetSelection = false;
-        if (LeftHandAttackGroup.ActiveToggles().Count == 0 && LeftHandBlockGroup.ActiveToggles().Count < 2) return;
-        if (RightHandAttackGroup.ActiveToggles().Count == 0 && RightHandBlockGroup.ActiveToggles().Count < 2) return;
-
-        GetTargetsData();
-    }
-
-
-    private void GetTargetsData()
-    {
-        Dictionary<string,string> handActions = new Dictionary<string, string>();
-
-        bool leftIsAttack = LeftHandAttackGroup.ActiveToggles().Count > 0;
-        bool rightIsAttack = RightHandAttackGroup.ActiveToggles().Count > 0;
-
-        handActions.Add("right_type", rightIsAttack ? "attack" : "block");
-        handActions.Add("left_type", leftIsAttack ? "attack" : "block");
-
-        if (leftIsAttack)
-        {
-            handActions.Add("left_first", LeftHandAttackGroup.ActiveToggles().Find(a=>a.isOn).gameObject.GetComponent<CustomToggle>().ToggleBodyTarget.ToString());
-        }
-        else
-        {
-            var leftBlockGroupToggles = LeftHandBlockGroup.ActiveToggles().FindAll(a => a.isOn);
-            handActions.Add("left_first", leftBlockGroupToggles[0].GetComponent<CustomToggle>().ToggleBodyTarget.ToString());
-            handActions.Add("left_second", leftBlockGroupToggles[1].GetComponent<CustomToggle>().ToggleBodyTarget.ToString());
-        }
-
-        if (rightIsAttack)
-        {
-            handActions.Add("right_first", RightHandAttackGroup.ActiveToggles().Find(a => a.isOn).gameObject.GetComponent<CustomToggle>().ToggleBodyTarget.ToString());
-        }
-        else
-        {
-            var rightBlockGroupToggles = RightHandBlockGroup.ActiveToggles().FindAll(a => a.isOn);
-            handActions.Add("right_first", rightBlockGroupToggles[0].GetComponent<CustomToggle>().ToggleBodyTarget.ToString());
-            handActions.Add("right_second", rightBlockGroupToggles[1].GetComponent<CustomToggle>().ToggleBodyTarget.ToString());
-        }
-
-        Dictionary<string, object> dict = new Dictionary<string, object>();
-        dict.Add("battle#action", handActions);
-        string s = Json.Serialize(dict);
-        Debug.Log(s);
-    }
-
-
+    
     private void Update()
     {
-        if(inTargetSelection) return;
+        //if(inTargetSelection) return;
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit) && hit.transform.gameObject.tag == "Hex")
@@ -230,79 +165,19 @@ public class BattleController : MonoBehaviour
         }
     }
 
+    //void OnGUI()
+    //{
 
-    public bool attack_left_head;
-    public bool attack_left_body;
-    public bool attack_left_left_hand;
-    public bool attack_left_right_hand;
-    public bool attack_left_legs;
+    //    if (SelectedHex == null) return;
 
-    public bool attack_right_head;
-    public bool attack_right_body;
-    public bool attack_right_left_hand;
-    public bool attack_right_right_hand;
-    public bool attack_right_legs;
+    //        if (GUI.Button(new Rect(Screen.width/2f - 100f, Screen.height - 100f, 100f, 100f), "Walk"))
+    //        {
+    //            Debug.Log("Walk to:" + "X:" + SelectedHex.X + "Y:" + SelectedHex.Y);
+    //        }
 
-    public bool left_hand_used;
-    public bool right_hand_used;
-
-
-    public ToggleGroupCustom LeftHandAttackGroup;
-    public ToggleGroupCustom RightHandAttackGroup;
-    public ToggleGroupCustom LeftHandBlockGroup;
-    public ToggleGroupCustom RightHandBlockGroup;
-
-    public GameObject AttackBlockWindow;
-    public bool inTargetSelection;
-
-
-    public void OnToggleClick(GameObject go)
-    {
-        ToggleGroupCustom group = go.GetComponent<CustomToggle>().GroupTarget;
-        group.SetToggleActive(go.GetComponent<Toggle>());
-        switch ( group.GroupHandType)
-        {
-                case ToggleGroupCustom.HandType.LeftHandAttack:
-                LeftHandBlockGroup.SetTogglesInactive();
-                break;
-                case ToggleGroupCustom.HandType.RightHandAttack:
-                RightHandBlockGroup.SetTogglesInactive();
-                break;
-                case ToggleGroupCustom.HandType.LeftHandBlock:
-                LeftHandAttackGroup.SetTogglesInactive();
-                break;
-                case ToggleGroupCustom.HandType.RightHandBlock:
-                RightHandAttackGroup.SetTogglesInactive();
-                break;
-        }
-    }
-
-    void OnGUI()
-    {
-
-        if (SelectedHex == null) return;
-
-            if (GUI.Button(new Rect(Screen.width/2f - 100f, Screen.height - 100f, 100f, 100f), "Walk"))
-            {
-                Debug.Log("Walk to:" + "X:" + SelectedHex.X + "Y:" + SelectedHex.Y);
-            }
-
-            if (GUI.Button(new Rect(Screen.width / 2f, Screen.height - 100f, 100f, 100f), "Attack/Block"))
-            {
-                Debug.Log("Walk to:" + "X:" + SelectedHex.X + "Y:" + SelectedHex.Y);
-                AttackBlockWindow.SetActive(true);
-            }
-
-            //if (GUI.Button(new Rect(Screen.width / 2f+100f, Screen.height - 100f, 100f, 100f), "Toggles"))
-            //{
-            //  // DebugToogleGroup();
-            //}
-            //GUI.BeginGroup(new Rect(Screen.width / 2f - ActionsFrameSize.x/2f, Screen.height / 2f - ActionsFrameSize.y / 2f, ActionsFrameSize.x, ActionsFrameSize.y));
-            //GUI.Box(new Rect(0, 0, ActionsFrameSize.x, ActionsFrameSize.y), "Attack/Block");
-
-            //attack_left_head = GUI.Toggle(new Rect(10, 10, 20, 20), attack_left_head, "");
-
-            //GUI.EndGroup();
-            
-    }
+    //        if (GUI.Button(new Rect(Screen.width / 2f, Screen.height - 100f, 100f, 100f), "Attack/Block"))
+    //        {
+    //            Debug.Log("Walk to:" + "X:" + SelectedHex.X + "Y:" + SelectedHex.Y);
+    //        }
+    //}
 }

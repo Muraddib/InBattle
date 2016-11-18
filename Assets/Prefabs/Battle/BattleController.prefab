@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &125320
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 409128}
+  - 114: {fileID: 11499984}
+  m_Layer: 0
+  m_Name: BattleController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &409128
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 125320}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11499984
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 125320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 262cda8204d7fd149b7e1670995bd98d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentBattle:
+    battle:
+      id: 0
+      status: 
+      number: 0
+      min_lvl: 0
+      max_lvl: 0
+      width: 0
+      height: 0
+      round: 0
+      start_time: 0
+      round_time: 0
+      updated_at: 0
+      variations: []
+      essences: []
+  HexPrefab: {fileID: 140830, guid: 1a127f28de5f86c43ba90ad71031b39e, type: 2}
+  HexSize: {x: 0, y: 0}
+  HexHover: {fileID: 0}
+  HexNormal: {fileID: 2100000, guid: 591a17fccf16adf4183feb6ad58d736d, type: 2}
+  HexSelected: {fileID: 2100000, guid: 115a7c4cd17eceb47a4a7764e5c47734, type: 2}
+  Hexes: []
+  SelectedHex: {fileID: 0}
+  OrcPrefab: {fileID: 111586, guid: 045fe4d43850efa44a1fdc063e37f0f2, type: 2}
+  ElfPrefab: {fileID: 157646, guid: 4a3b4bd58158c2447a1301ef30172ae2, type: 2}
+  HumanPrefab: {fileID: 118080, guid: fee5303e284fc4b4aa3c41ae4d07f914, type: 2}
+  DwarfPrefab: {fileID: 172134, guid: 4254eb0a56b73e34badd88539cf67d96, type: 2}
+  UndeadPrefab: {fileID: 163952, guid: 613b1cceb11261a4886db41db32c48fb, type: 2}
+  BattleCharacters: []
+  ActionsFrameSize: {x: 600, y: 300}
+  debugJSON: 0
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 125320}
+  m_IsPrefabParent: 1
