@@ -363,19 +363,19 @@ namespace LitJson
             if (reader.Token == JsonToken.ArrayEnd)
                 return null;
 
-            if (reader.Token == JsonToken.Null) {
+//            if (reader.Token == JsonToken.Null) {
 
-#if NETFX_CORE
-                if (! inst_type.GetTypeInfo().IsClass)
-#else
-                if (! inst_type.IsClass)
-#endif
-                    throw new JsonException (String.Format (
-                            "Can't assign null to an instance of type {0}",
-                            inst_type));
+//#if NETFX_CORE
+//                if (! inst_type.GetTypeInfo().IsClass)
+//#else
+//                if (! inst_type.IsClass)
+//#endif
+//                    throw new JsonException (String.Format (
+//                            "Can't assign null to an instance of type {0};{1}",
+//                            inst_type, reader.Value));
 
-                return null;
-            }
+//                return null;
+//            }
 
             if (reader.Token == JsonToken.Double ||
                 reader.Token == JsonToken.Int ||

@@ -1,0 +1,180 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &107948
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 475956}
+  - 114: {fileID: 11440066}
+  - 114: {fileID: 11456604}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &115198
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 438790}
+  - 114: {fileID: 11430196}
+  m_Layer: 0
+  m_Name: AppController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &438790
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 115198}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 475956}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!4 &475956
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 107948}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 438790}
+  m_RootOrder: 0
+--- !u!114 &11430196
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 115198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acc15620f8c2ba74195ae24d9876968c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BattleTest: "{\"battle\":{\"id\":1642,\"seed\":134551905822791882711948917405898864299,\"number\":2,\"min_lvl\":1,\"max_lvl\":2,\"width\":6,\"height\":3,\"round\":1,\"status\":\"battle\",\"start_time\":300,\"round_time\":120,\"updated_at\":1479741723,\"variations\":[],\"essences\":[{\"id\":1,\"seed\":139553493789658664930476153963653008249,\"gex\":{\"x\":5,\"y\":2},\"kind\":\"battler\",\"size\":null,\"exp\":0,\"status\":\"active\",\"result\":\"pending\",\"modifiers\":[],\"log_data\":{},\"team_index\":1,\"info\":{\"id\":845974,\"name\":\"Luke
+    Skywalker\",\"race\":\"elf\",\"gender\":\"male\",\"level\":1,\"head_def\":0,\"body_def\":0,\"right_hand_def\":0,\"left_hand_def\":0,\"legs_def\":0,\"head_status\":\"good\",\"body_status\":\"good\",\"right_hand_status\":\"good\",\"left_hand_status\":\"good\",\"legs_status\":\"good\",\"rating\":59,\"authority\":0,\"consequence\":0,\"wins\":0,\"fails\":15,\"draws\":2,\"kills\":0,\"death\":1,\"interventions\":0,\"user_id\":880037,\"hp\":50,\"max_hp\":50,\"about\":null,\"created_at\":1474642255,\"user\":{\"id\":880037,\"created_at\":1474629401},\"items\":[]}},{\"id\":2,\"seed\":165629458527265311790753444469534424380,\"gex\":{\"x\":2,\"y\":2},\"kind\":\"battler\",\"size\":null,\"exp\":0,\"status\":\"active\",\"result\":\"pending\",\"modifiers\":[],\"log_data\":{},\"team_index\":0,\"info\":{\"id\":-4465,\"name\":\"\u041F\u0440\u0438\u0437\u0440\u0430\u043A
+    \u043A\u0440\u043E\u0432\u0430\u0432\u043E\u0433\u043E \u043E\u0442\u0448\u0435\u043B\u044C\u043D\u0438\u043A\u0430\",\"race\":\"human\",\"gender\":\"male\",\"level\":1,\"head_def\":0,\"body_def\":0,\"right_hand_def\":0,\"left_hand_def\":0,\"legs_def\":0,\"head_status\":\"good\",\"body_status\":\"good\",\"right_hand_status\":\"good\",\"left_hand_status\":\"good\",\"legs_status\":\"good\",\"rating\":41,\"authority\":0,\"consequence\":0,\"wins\":0,\"fails\":0,\"draws\":0,\"kills\":0,\"death\":0,\"interventions\":0,\"user_id\":-4465,\"hp\":65,\"max_hp\":65,\"about\":null,\"created_at\":null,\"user\":{\"id\":-4465,\"status\":\"npc\",\"created_at\":null},\"items\":[]}},{\"id\":3,\"seed\":89981498858574918398609758347591500448,\"gex\":{\"x\":6,\"y\":1},\"kind\":\"hollow\",\"size\":null},{\"id\":4,\"seed\":11051596243766727116033114408281828752,\"gex\":{\"x\":6,\"y\":3},\"kind\":\"hollow\",\"size\":null},{\"id\":5,\"seed\":6589032434475447190303465194203464538,\"gex\":{\"x\":5,\"y\":3},\"kind\":\"obstacle\",\"size\":null},{\"id\":6,\"seed\":169383795606559688910290619045822077425,\"gex\":{\"x\":5,\"y\":1},\"kind\":\"obstruction\",\"size\":null,\"solidity\":3,\"injury\":0},{\"id\":7,\"seed\":1923840696601730679322184276072822584,\"gex\":{\"x\":3,\"y\":2},\"kind\":\"obstruction\",\"size\":null,\"solidity\":3,\"injury\":0}],\"teams\":[{\"index\":0,\"color\":\"red\",\"need_password\":false},{\"index\":1,\"color\":\"blue\",\"need_password\":false}],\"creator_id\":880037}}"
+  BattleID: 0
+  BattleControllerPrefab: {fileID: 125320, guid: b9629e7cb4f25cd469eebe937e408ea8,
+    type: 2}
+  ActiveBattle: {fileID: 0}
+  GameUIForms: {fileID: 11400000, guid: bd0f06e31d5c4894ea681bd18644d7b1, type: 2}
+  PlayerCharacter:
+    id: 0
+    name: 
+    race: 
+    gender: 
+    level: 0
+    head_def: 0
+    body_def: 0
+    right_hand_def: 0
+    left_hand_def: 0
+    legs_def: 0
+    head_status: 
+    body_status: 
+    right_hand_status: 
+    left_hand_status: 
+    legs_status: 
+    rating: 0
+    authority: 0
+    consequence: 0
+    wins: 0
+    fails: 0
+    draws: 0
+    kills: 0
+    death: 0
+    interventions: 0
+    user_id: 0
+    hp: 0
+    max_hp: 0
+    created_at: 0
+    user:
+      id: 0
+    items: []
+    str: 0
+    dex: 0
+    rancor: 0
+    rage: 0
+    luck: 0
+    const: 0
+    dex_mirror: 0
+    rancor_mirror: 0
+    rage_mirror: 0
+    luck_mirror: 0
+    dex_aura: 0
+    rancor_aura: 0
+    rage_aura: 0
+    luck_aura: 0
+    free_points: 0
+    exp: 0
+    exp_to_level_up: 0
+    exp_to_interim_up: 0
+    money: 0
+    potions: 0
+    elixirs: 0
+    permits: 0
+    keys: 0
+    oblivions: 0
+    in_view: 0
+  _gameState: 0
+--- !u!114 &11440066
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 107948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -619905303, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 5
+--- !u!114 &11456604
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 107948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1077351063, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 115198}
+  m_IsPrefabParent: 1

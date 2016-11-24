@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 409128}
   - 114: {fileID: 11499984}
+  - 114: {fileID: 11481798}
   m_Layer: 0
   m_Name: BattleController
   m_TagString: Untagged
@@ -28,6 +29,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11481798
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 125320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29b5c6f46e1a3f94cb9aeb0532b491e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11499984
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -66,6 +78,10 @@ MonoBehaviour:
   HumanPrefab: {fileID: 118080, guid: fee5303e284fc4b4aa3c41ae4d07f914, type: 2}
   DwarfPrefab: {fileID: 172134, guid: 4254eb0a56b73e34badd88539cf67d96, type: 2}
   UndeadPrefab: {fileID: 163952, guid: 613b1cceb11261a4886db41db32c48fb, type: 2}
+  HexPlayerPrefab: {fileID: 140830, guid: 35a0fa31c2346664e9406e2a8ca9651f, type: 2}
+  SmallObstaclePrefab: {fileID: 102558, guid: 653e9c7fc4099a543b804a33da819ec7, type: 2}
+  SmallObstructionPrefab: {fileID: 155016, guid: c8dae065acf3fac4a83ce88eebf7dd88,
+    type: 2}
   BattleCharacters: []
   ActionsFrameSize: {x: 600, y: 300}
   debugJSON: 0
@@ -80,6 +96,18 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: HexPlayerPrefab
+      value: 
+      objectReference: {fileID: 140830, guid: 35a0fa31c2346664e9406e2a8ca9651f, type: 2}
+    - target: {fileID: 0}
+      propertyPath: SmallObstaclePrefab
+      value: 
+      objectReference: {fileID: 102558, guid: 653e9c7fc4099a543b804a33da819ec7, type: 2}
+    - target: {fileID: 0}
+      propertyPath: SmallObstructionPrefab
+      value: 
+      objectReference: {fileID: 155016, guid: c8dae065acf3fac4a83ce88eebf7dd88, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 125320}

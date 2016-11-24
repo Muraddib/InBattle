@@ -4,7 +4,6 @@ using System.Collections;
 using System.Collections.Generic;
 using LitJson;
 using SimpleJSON;
-using System;
 
 [Serializable]
 public class BattleData
@@ -40,7 +39,7 @@ public class Essence
     public Gex gex;
     public string kind;
     public string size;
-    public int exp;
+    public double exp;
     public string status;
     public string result;
     public List<string> modifiers;
@@ -83,7 +82,7 @@ public class BattlerInfo
     public int hp;
     public int max_hp;
     //public object about;
-    public int created_at;
+    public int? created_at;
     public User user;
     public List<Item> items;
 }
@@ -99,7 +98,7 @@ public class Gex
 public class User
 {
     public int id;
-    public int created_at;
+    public int? created_at;
 }
 
 [Serializable]

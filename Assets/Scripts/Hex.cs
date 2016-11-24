@@ -7,4 +7,5 @@ public class Hex : MonoBehaviour
     public int Y;
     public int Index;
     public bool Visible;
+    public Essence HexEssence;
 }

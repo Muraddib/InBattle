@@ -7,14 +7,26 @@ using LitJson;
 
 public class NetworkManager : MonoBehaviour
 {
-
     public static NetworkManager Instance;
 
     private Client _client { get; set; }
 
-    public event Action<string> OnMessageRedirect;
-    public event Action<string> OnMessageInfo;
-    public event Action<BattleData> OnMessageBattle;
+    //public event Action<string> OnMessageRedirect;
+
+    public class BattleDataEventArgs : EventArgs
+    {
+        public BattleData BattleData { get; set; }
+    }
+
+    public class UserInfoEventArgs : EventArgs
+    {
+        public PlayerData Data { get; set; }
+    }
+
+    public event EventHandler<BattleDataEventArgs> OnMessageBattle = (sender, e) => { };
+    public event EventHandler<UserInfoEventArgs> OnMessageInfo = (sender, e) => { };
+
+    public Queue<KeyValuePair<string, string>> ServerMessages = new Queue<KeyValuePair<string, string>>();
 
     void Awake()
     {
@@ -44,20 +56,31 @@ public class NetworkManager : MonoBehaviour
         _client.Send(message);
     }
 
-    private void ParseMessage(string json)
+    private void EvaluateMessages(KeyValuePair<string, string> message)
     {
-        var jsonData = JsonMapper.ToObject(json);
-        var message = new KeyValuePair<string, JsonData>();
-        foreach (var key in jsonData.Keys)
-        {
-            message = new KeyValuePair<string, JsonData>(key, jsonData);
-        }
         switch (message.Key)
         {
             case "battle":
-                if (OnMessageBattle != null) OnMessageBattle(JsonMapper.ToObject<BattleData>(json));
+                Debug.Log("battle");
+                if (OnMessageBattle != null) OnMessageBattle(this, new BattleDataEventArgs { BattleData = JsonMapper.ToObject<BattleData>(message.Value) });
+                break;
+            case "info":
+                Debug.Log("info");
+                if (OnMessageInfo != null) OnMessageInfo(this, new UserInfoEventArgs{ Data = JsonMapper.ToObject<PlayerData>(message.Value) });
                 break;
         }
+    }
+
+    private void ParseMessage(string json)
+    {
+        var jsonData = JsonMapper.ToObject(json);
+        var message = new KeyValuePair<string, string>();
+        foreach (var key in jsonData.Keys)
+        {
+            message = new KeyValuePair<string, string>(key, json);
+        }
+    
+        ServerMessages.Enqueue(message);
     }
 
     private void OnApplicationQuit()
@@ -65,5 +88,13 @@ public class NetworkManager : MonoBehaviour
         Debug.Log("Application Quit, Socket shutdown");
         _client._clientSocket.Shutdown(SocketShutdown.Both);
         _client._clientSocket.Close();
+    }
+
+    void Update()
+    {
+        if (ServerMessages.Count > 0)
+        {
+            EvaluateMessages(ServerMessages.Dequeue());
+        }
     }
 }

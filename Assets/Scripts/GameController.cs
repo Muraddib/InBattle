@@ -3,48 +3,83 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using LitJson;
 using MiniJSON;
 using UnityEditor;
 using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
+    public string BattleTest;
     public int BattleID;
-
     public static GameController Instance;
     private NetworkManager _networkManager;
     public Scene[] Scenes;
     public GameObject BattleControllerPrefab;
     public BattleController ActiveBattle;
+    public GameUIFormsKeeper GameUIForms;
+    public UserInfo PlayerCharacter;
 
     [SerializeField] private GameStates _gameState;
 
     public void Awake()
     {
         Instance = gameObject.GetComponent<GameController>();
-        _networkManager = gameObject.GetComponent<NetworkManager>();
-        _networkManager.OnMessageBattle += _networkManager_OnMessageBattle;
+        _networkManager = gameObject.AddComponent<NetworkManager>();
         _networkManager.Initialize();
+        _networkManager.OnMessageBattle += _networkManager_OnMessageBattle;
+        _networkManager.OnMessageInfo += _networkManager_OnMessageInfo;
+        DontDestroyOnLoad(gameObject);
+        LoadCity();
     }
 
-    private void _networkManager_OnMessageBattle(BattleData battleData)
+    private void _networkManager_OnMessageInfo(object sender, NetworkManager.UserInfoEventArgs user)
     {
+        PlayerCharacter = user.Data.info;
+        Debug.Log(PlayerCharacter.id);
+        Debug.Log(PlayerCharacter.name);
+    }
+
+    private void _networkManager_OnMessageBattle(object obj, NetworkManager.BattleDataEventArgs battleData)
+    {
+        Debug.Log("On battle message");
         switch (_gameState)
         {
                 case GameStates.StateCity:
-                LoadBattle(battleData);
+                LoadBattle(battleData.BattleData);
+                break;
+                case GameStates.StateBattle:
+                if(ActiveBattle!=null)
+                ActiveBattle.UpdateButtle(battleData.BattleData);
                 break;
         }
+    }
+
+    private void OnBattleEnd(object obj, EventArgs e)
+    {
+        if (ActiveBattle != null)
+        {
+            ActiveBattle.OnBattleEnd -= OnBattleEnd;
+            ActiveBattle = null;
+        }
+        LoadCity();
+    }
+
+    private void LoadCity()
+    {
+        _gameState = GameStates.StateCity;
+        SceneManager.LoadScene("City", LoadSceneMode.Single);
+        StartCoroutine(WaitForSceneLoad(SceneManager.GetSceneByName("City")));
     }
 
     private void LoadBattle(BattleData data)
     {
         _gameState = GameStates.StateBattle;
-        SceneManager.LoadScene("Battle");
-        StartCoroutine(WaitForSceneLoad(SceneManager.GetSceneByName("Battle"), (battle) => { OnSceneLoaded(data); }));
+        SceneManager.LoadScene("Battle", LoadSceneMode.Single);
+        StartCoroutine(WaitForSceneLoad(SceneManager.GetSceneByName("Battle"), data));
     }
 
-    public IEnumerator WaitForSceneLoad(Scene scene, Action<BattleData> onDone)
+    public IEnumerator WaitForSceneLoad(Scene scene, BattleData battle = null)
     {
         while (!scene.isLoaded)
         {
@@ -52,13 +87,20 @@ public class GameController : MonoBehaviour
         }
         Debug.Log("Setting active scene..");
         SceneManager.SetActiveScene(scene);
+
+        if (battle != null)
+        {
+            OnSceneLoaded(battle);
+        }
     }
 
     private void OnSceneLoaded(BattleData battle)
     {
        var battleController = Instantiate(BattleControllerPrefab) as GameObject;
        ActiveBattle = battleController.GetComponent<BattleController>();
+       battleController.GetComponent<BattleUIController>().Init(GameUIForms.UIForms.BattleUIForms, GameUIForms.UIForms.BattleUIRoot);
        ActiveBattle.Initialize(battle);
+       ActiveBattle.OnBattleEnd += OnBattleEnd;
     }
 
     public void OnGUI()
@@ -128,6 +170,13 @@ public class GameController : MonoBehaviour
             Debug.Log(s);
             NetworkManager.Instance.Send(s + "\f");
         }
+
+        if (GUI.Button(new Rect(600f, 0f, 100f, 100f), "TestBattle"))
+        {
+            var battle = JsonMapper.ToObject<BattleData>(BattleTest);
+            _networkManager_OnMessageBattle(this, new NetworkManager.BattleDataEventArgs { BattleData = battle });
+        }
+
     }
 
 }

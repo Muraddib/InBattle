@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class BaseWindow : MonoBehaviour
+public abstract class UIForm : MonoBehaviour
 {
+    public UIFormIDs FormID;
+
     public virtual void Close()
     {
         gameObject.SetActive(false);
