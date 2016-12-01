@@ -23,8 +23,15 @@ public class NetworkManager : MonoBehaviour
         public PlayerData Data { get; set; }
     }
 
+    public class ChatEventArgs : EventArgs
+    {
+        public string ChatMessage { get; set; }
+    }
+
     public event EventHandler<BattleDataEventArgs> OnMessageBattle = (sender, e) => { };
     public event EventHandler<UserInfoEventArgs> OnMessageInfo = (sender, e) => { };
+    public event EventHandler<ChatEventArgs> OnMessageChat = (sender, e) => { };
+    public event EventHandler OnMessageOnline = (sender, e) => { };
 
     public Queue<KeyValuePair<string, string>> ServerMessages = new Queue<KeyValuePair<string, string>>();
 
@@ -67,6 +74,14 @@ public class NetworkManager : MonoBehaviour
             case "info":
                 Debug.Log("info");
                 if (OnMessageInfo != null) OnMessageInfo(this, new UserInfoEventArgs{ Data = JsonMapper.ToObject<PlayerData>(message.Value) });
+                break;
+            case "chat":
+                Debug.Log("chat");
+                if (OnMessageChat != null) OnMessageChat(this, new ChatEventArgs { ChatMessage = JsonMapper.ToObject(message.Value)["chat"]["text"].ToString() });
+                break;
+            case "online":
+                Debug.Log("chat");
+                if (OnMessageOnline != null) OnMessageOnline(this, new EventArgs());
                 break;
         }
     }
