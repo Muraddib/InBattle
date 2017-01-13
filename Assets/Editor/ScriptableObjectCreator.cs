@@ -1,9 +1,11 @@
-﻿using UnityEngine;
+﻿#if UNITY_EDITOR
+using UnityEngine;
 using UnityEditor;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
-    public class ScriptableObjectCreator : EditorWindow
+
+public class ScriptableObjectCreator : EditorWindow
     {
         [MenuItem("MatchThree/Create ScriptableObject")]
         static void Init()
@@ -75,3 +77,4 @@ using System.Reflection;
             Selection.activeObject = asset;
         }
     }
+#endif

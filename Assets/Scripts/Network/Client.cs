@@ -16,23 +16,11 @@ public class Client {
   SocketType.Stream, ProtocolType.Tcp);
     private byte[] _recieveBuffer = new byte[8142];
 
-    private const int staticResourcesPort = 8080;
-    private const string staticResourcesIP = "188.93.18.141";
+
 
     private const int rawPort = 5000;
     private const string rawIP = "188.93.18.139";
-    /// <summary>
-    /// Game static resources
-    /// </summary>
-    private const string httpGetCharactersInfo = "info";
 
-    private const string httpGetLocales = "locales/ru";
-    private const string httpGetShop = "shop";
-    private const string httpGetHall = "hall";
-    private const string httpGetOnline = "online";
-    private const string httpGetRating = "rating_top";
-    private const string httpGetAuthority = "authority_top";
-    private const string httpGetConsequence = "consequence_top";
 
     public bool TutorialAuth;
     public bool GuestAuth;
@@ -41,19 +29,10 @@ public class Client {
 
     private double timestamp;
 
-    private string weekMarker = String.Format("{0}/60/60/24/7", ConvertToUnixTimestamp(DateTime.Now));
-    private string monthMarker = String.Format("{0}/60/60/24/7/4", ConvertToUnixTimestamp(DateTime.Now));
-
+  
     public string buffer = string.Empty;
 
     public event Action<string> OnMessageReceived;
-
-    private static double ConvertToUnixTimestamp(DateTime date)
-    {
-        DateTime origin = new DateTime(1970, 1, 1, 0, 0, 0, 0);
-        TimeSpan diff = date - origin;
-        return Math.Floor(diff.TotalSeconds);
-    }
 
     public void SetupConnection()
     {

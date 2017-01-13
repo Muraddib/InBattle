@@ -65,7 +65,7 @@ public class BattleController : MonoBehaviour
 
     public bool IsNeighbourHex(Hex hex)
     {
-        var playerEssense = currentBattle.battle.essences.Find(a => a.info.id == GameController.Instance.PlayerCharacter.id);
+        var playerEssense = currentBattle.battle.essences.Find(a => a.info.id == GameController.Instance.PlayerInfo.id);
 
         if (hex.Y == playerEssense.gex.y)
         {
@@ -225,7 +225,7 @@ public class BattleController : MonoBehaviour
     private void UpdatePlayerHex()
     {
         var playerEssense =
-            currentBattle.battle.essences.Find(a => a.info.id == GameController.Instance.PlayerCharacter.id);
+            currentBattle.battle.essences.Find(a => a.info.id == GameController.Instance.PlayerInfo.id);
         HexPlayer.transform.position =
             Hexes.Find(a => a.X == playerEssense.gex.x && a.Y == playerEssense.gex.y).transform.position +
             new Vector3(0f, 0.1f, 0.1f);

@@ -94,11 +94,22 @@ public class Gex
     public int y;
 }
 
+public class Player
+{
+    public int id;
+    public string name;
+    public string race;
+    public string gender;
+    public int level;
+    public User user;
+}
+
 [Serializable]
 public class User
 {
     public int id;
     public int? created_at;
+    public string account;
 }
 
 [Serializable]

@@ -14,7 +14,7 @@ public class ChatController : MonoBehaviour
 
     void Awake()
     {
-        DontDestroyOnLoad(gameObject.transform.parent.gameObject);
+        DontDestroyOnLoad(gameObject.transform.root.gameObject);
         NetworkManager.Instance.OnMessageChat += NetworkManager_OnMessageChat;
     }
 

@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using LitJson;
 using MiniJSON;
-using UnityEditor;
 using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
@@ -18,9 +17,29 @@ public class GameController : MonoBehaviour
     public GameObject BattleControllerPrefab;
     public BattleController ActiveBattle;
     public GameUIFormsKeeper GameUIForms;
-    public UserInfo PlayerCharacter;
+    public event EventHandler PlayerInfoUpdated;
+
+    private UserInfo playerInfo;
+    public UserInfo PlayerInfo
+    {
+        get
+        {
+            return playerInfo;
+        }
+        set
+        {
+            playerInfo = value;
+            if (PlayerInfoUpdated != null) PlayerInfoUpdated(this, EventArgs.Empty);
+        }
+    }
+
+    public GameObject PersistentUICanvas;
 
     [SerializeField] private GameStates _gameState;
+
+    public RaceIconsList RaceIcons;
+    public AvatarImagesList AvatarImages;
+
 
     public void Awake()
     {
@@ -31,13 +50,14 @@ public class GameController : MonoBehaviour
         _networkManager.OnMessageInfo += _networkManager_OnMessageInfo;
         DontDestroyOnLoad(gameObject);
         LoadCity();
+        LoadUI();
     }
 
     private void _networkManager_OnMessageInfo(object sender, NetworkManager.UserInfoEventArgs user)
     {
-        PlayerCharacter = user.Data.info;
-        Debug.Log(PlayerCharacter.id);
-        Debug.Log(PlayerCharacter.name);
+        PlayerInfo = user.Data.info;
+        Debug.Log(PlayerInfo.id);
+        Debug.Log(PlayerInfo.name);
     }
 
     private void _networkManager_OnMessageBattle(object obj, NetworkManager.BattleDataEventArgs battleData)
@@ -70,6 +90,11 @@ public class GameController : MonoBehaviour
         _gameState = GameStates.StateCity;
         SceneManager.LoadScene("City", LoadSceneMode.Single);
         StartCoroutine(WaitForSceneLoad(SceneManager.GetSceneByName("City")));
+    }
+
+    private void LoadUI()
+    {
+        PersistentUICanvas.SetActive(true);
     }
 
     private void LoadBattle(BattleData data)
@@ -148,10 +173,10 @@ public class GameController : MonoBehaviour
             NetworkManager.Instance.Send(s + "\f");
         }
 
-        if (GUI.Button(new Rect(300f, 0f, 100f, 100f), "Get Battles"))
-        {
-            //StartCoroutine(GetServerStaticResources(SetHttpRequest(staticResourcesIP, staticResourcesPort, httpGetHall, ConvertToUnixTimestamp(DateTime.Now).ToString())));
-        }
+        //if (GUI.Button(new Rect(300f, 0f, 100f, 100f), "Get Battles"))
+        //{
+        //    //StartCoroutine(GetServerStaticResources(SetHttpRequest(staticResourcesIP, staticResourcesPort, httpGetHall, ConvertToUnixTimestamp(DateTime.Now).ToString())));
+        //}
 
         if (GUI.Button(new Rect(400f, 0f, 100f, 100f), "Potion"))
         {
