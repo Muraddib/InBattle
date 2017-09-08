@@ -173,6 +173,9 @@ public class NetworkManager : MonoBehaviour
     {
         WWW www = new WWW(url);
         yield return www;
+        Debug.Log(www.bytesDownloaded);
+        Debug.Log(www.text);
+        Debug.Log(www.error);
         if (onDone != null) onDone(www.text);
     }
 }
