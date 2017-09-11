@@ -2,5 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IBattlesListView {
+public enum StaticResources
+{
+    BattlesList
 }
